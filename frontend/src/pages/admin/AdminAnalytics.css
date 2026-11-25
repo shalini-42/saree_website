@@ -1,0 +1,568 @@
+/* ==========================================================================
+   SĀRIKA LUXURY ATELIER — ADMIN ANALYTICS STYLES
+   Strictly scoped to avoid any style leakage into other pages.
+   ========================================================================== */
+
+.sarika-admin-analytics {
+  --primary: #551b2b;
+  --primary-hover: #71283b;
+  --primary-dark: #3a101b;
+  --accent-gold: #c5a880;
+  --dark-gold: #8c6d46;
+  --bg-page: #faf8f5;
+  --bg-card: #ffffff;
+  --border-light: #e8dec8;
+  --border-input: #d8cebf;
+  --text-dark: #2c2420;
+  --text-muted: #7a6e65;
+  --success: #236442;
+  --warning: #b37418;
+  --danger: #9c2020;
+
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 36px 20px 60px;
+  box-sizing: border-box;
+}
+
+.sarika-admin-analytics *,
+.sarika-admin-analytics *::before,
+.sarika-admin-analytics *::after {
+  box-sizing: border-box;
+}
+
+.sarika-admin-analytics .sarika-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* --- Royal Decorative Accent Bar --- */
+.sarika-admin-analytics .sarika-accent-strip {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent-gold) 50%, var(--primary) 100%);
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+
+/* --- Header Section --- */
+.sarika-admin-analytics .sarika-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 26px;
+  margin-bottom: 34px;
+}
+
+.sarika-admin-analytics .sarika-subtitle-chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dark-gold);
+  margin-bottom: 6px;
+}
+
+.sarika-admin-analytics .sarika-title {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.sarika-admin-analytics .sarika-title-slash {
+  color: var(--accent-gold);
+  font-weight: 300;
+}
+
+.sarika-admin-analytics .sarika-tagline {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.sarika-admin-analytics .sarika-btn-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(85, 27, 43, 0.22);
+  transition: all 0.25s ease;
+}
+
+.sarika-admin-analytics .sarika-btn-refresh:hover:not(:disabled) {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(85, 27, 43, 0.3);
+}
+
+.sarika-admin-analytics .sarika-btn-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sarika-admin-analytics .spin-icon {
+  animation: sarikaSpin 1s linear infinite;
+}
+
+/* --- Hero Stat Cards --- */
+.sarika-admin-analytics .sarika-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  margin-bottom: 36px;
+}
+
+.sarika-admin-analytics .sarika-stat-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 24px rgba(85, 27, 43, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: sarikaCardSlideUp 0.5s ease-out backwards;
+}
+
+.sarika-admin-analytics .sarika-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 14px 34px rgba(85, 27, 43, 0.08);
+}
+
+.sarika-admin-analytics .sarika-stat-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+}
+
+.sarika-admin-analytics .sarika-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sarika-admin-analytics .sarika-stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dark-gold);
+}
+
+.sarika-admin-analytics .sarika-stat-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background-color: #faf4ed;
+  border: 1px solid #ebd9c2;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.sarika-admin-analytics .sarika-stat-card:hover .sarika-stat-icon-wrap {
+  transform: scale(1.08) rotate(5deg);
+  background-color: #f5eae0;
+}
+
+.sarika-admin-analytics .sarika-stat-value {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 14px 0 4px;
+  letter-spacing: -0.5px;
+}
+
+.sarika-admin-analytics .sarika-stat-value.revenue {
+  background: linear-gradient(135deg, #551b2b 0%, #8a4658 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sarika-admin-analytics .sarika-stat-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Section Panels (Chart, Statuses, Rankings) --- */
+.sarika-admin-analytics .sarika-panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 4px 24px rgba(85, 27, 43, 0.03);
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.sarika-admin-analytics .sarika-panel:hover {
+  border-color: rgba(197, 168, 128, 0.8);
+}
+
+.sarika-admin-analytics .sarika-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid #f6efe6;
+  padding-bottom: 16px;
+}
+
+.sarika-admin-analytics .sarika-panel-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #faf4ed;
+  border: 1px solid #ebd9c2;
+  color: var(--dark-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sarika-admin-analytics .sarika-panel-title {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.sarika-admin-analytics .sarika-panel-subtitle {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* --- Monthly Revenue Chart Section --- */
+.sarika-admin-analytics .sarika-chart-section {
+  margin-bottom: 36px;
+}
+
+.sarika-admin-analytics .sarika-chart-wrap {
+  height: 290px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 24px 16px 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+@media (min-width: 640px) {
+  .sarika-admin-analytics .sarika-chart-wrap {
+    gap: 28px;
+    padding: 24px 28px 12px;
+  }
+}
+
+.sarika-admin-analytics .sarika-chart-col {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.sarika-admin-analytics .sarika-chart-col:hover .sarika-bar-tooltip {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.sarika-admin-analytics .sarika-bar-tooltip {
+  position: absolute;
+  top: -4px;
+  background-color: #2c131a;
+  color: #f7eedf;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.sarika-admin-analytics .sarika-bar-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 4px 0 4px;
+  border-style: solid;
+  border-color: #2c131a transparent transparent transparent;
+}
+
+.sarika-admin-analytics .sarika-bar-pill {
+  width: 100%;
+  max-width: 58px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: linear-gradient(180deg, var(--accent-gold) 0%, var(--primary) 100%);
+  transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.sarika-admin-analytics .sarika-bar-pill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.sarika-admin-analytics .sarika-chart-col:hover .sarika-bar-pill::before {
+  transform: translateX(100%);
+}
+
+.sarika-admin-analytics .sarika-chart-col:hover .sarika-bar-pill {
+  filter: brightness(1.15);
+}
+
+.sarika-admin-analytics .sarika-chart-month {
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* --- 2-Column Section Grids --- */
+.sarika-admin-analytics .sarika-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media (min-width: 960px) {
+  .sarika-admin-analytics .sarika-dual-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- Progress Bars (Order Status & Payment Status) --- */
+.sarika-admin-analytics .sarika-progress-row {
+  margin-bottom: 20px;
+}
+
+.sarika-admin-analytics .sarika-progress-row:last-child {
+  margin-bottom: 0;
+}
+
+.sarika-admin-analytics .sarika-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.sarika-admin-analytics .sarika-progress-title {
+  color: var(--text-dark);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.sarika-admin-analytics .sarika-progress-count {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 13px;
+}
+
+.sarika-admin-analytics .sarika-progress-track {
+  height: 9px;
+  background-color: #f2ebe3;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sarika-admin-analytics .sarika-progress-bar {
+  height: 100%;
+  border-radius: 30px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sarika-admin-analytics .sarika-progress-bar.order {
+  background: linear-gradient(90deg, #71283b 0%, #a3485e 100%);
+}
+
+.sarika-admin-analytics .sarika-progress-bar.payment {
+  background: linear-gradient(90deg, #8c6d46 0%, #c5a880 100%);
+}
+
+/* --- Ranking Lists (Best Sellers & Categories) --- */
+.sarika-admin-analytics .sarika-rank-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid #f6efe6;
+  transition: background-color 0.2s;
+}
+
+.sarika-admin-analytics .sarika-rank-row:last-child {
+  border-bottom: none;
+}
+
+.sarika-admin-analytics .sarika-rank-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sarika-admin-analytics .sarika-rank-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #faf4ed;
+  border: 1px solid var(--border-light);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.sarika-admin-analytics .sarika-rank-badge.top-one {
+  background: linear-gradient(135deg, #c5a880 0%, #8c6d46 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(140, 109, 70, 0.3);
+}
+
+.sarika-admin-analytics .sarika-rank-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.sarika-admin-analytics .sarika-rank-score {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 3px 12px;
+  border-radius: 20px;
+  background-color: #faf4ed;
+  border: 1px solid #eadfcb;
+}
+
+/* --- Empty, Loading & Error States --- */
+.sarika-admin-analytics .sarika-empty-state {
+  text-align: center;
+  padding: 42px 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.sarika-admin-analytics .sarika-loading-screen {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-page);
+  text-align: center;
+}
+
+.sarika-admin-analytics .sarika-royal-spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #eddcd1;
+  border-top-color: var(--primary);
+  border-right-color: var(--accent-gold);
+  animation: sarikaSpin 0.9s cubic-bezier(0.55, 0.055, 0.675, 0.19) infinite;
+  margin-bottom: 20px;
+}
+
+.sarika-admin-analytics .sarika-error-screen {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-page);
+  padding: 24px;
+}
+
+.sarika-admin-analytics .sarika-error-card {
+  background-color: #ffffff;
+  border: 1px solid #fad2d2;
+  border-radius: 20px;
+  padding: 36px 30px;
+  max-width: 440px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Footer Brand --- */
+.sarika-admin-analytics .sarika-footer-note {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dark-gold);
+}
+
+/* --- Keyframe Animations --- */
+@keyframes sarikaSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sarikaCardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

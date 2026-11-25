@@ -1,0 +1,931 @@
+/* ==========================================================================
+   SĀRIKA LUXURY FASHION — WISHLIST STYLESHEET
+   Design references: Sabyasachi couture, Dior editorial, Chanel lookbook
+   Typography: Cormorant Garamond (Serif) & Montserrat (Sans-serif)
+   Palette: Burgundy #551B2B, Wine #32101D, Deep #1F0912, Champagne Gold #D8B77C
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --sarika-burgundy: #551b2b;
+  --sarika-dark-wine: #32101d;
+  --sarika-deep-bg: #1f0912;
+  --sarika-champagne: #d8b77c;
+  --sarika-soft-gold: #b9955b;
+  --sarika-ivory: #f8f3ed;
+  --sarika-beige: #e8d9c9;
+  --sarika-muted-rose: #a17b78;
+
+  --sarika-gold-glass: rgba(216, 183, 124, 0.12);
+  --sarika-gold-border: rgba(216, 183, 124, 0.22);
+  --sarika-gold-border-hover: rgba(216, 183, 124, 0.55);
+  --sarika-gold-glow: rgba(216, 183, 124, 0.25);
+  --sarika-dark-overlay: rgba(31, 9, 18, 0.88);
+  
+  --sarika-font-serif: "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --sarika-font-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --sarika-transition-fast: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  --sarika-transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   PAGE WRAPPER & BACKGROUND
+   ========================================================================== */
+.wishlist-page {
+  min-height: 100vh;
+  background-color: var(--sarika-deep-bg);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(85, 27, 43, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(50, 16, 29, 0.55) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(216, 183, 124, 0.03) 0%, transparent 60%);
+  color: var(--sarika-ivory);
+  font-family: var(--sarika-font-sans);
+  padding: 4rem 1.5rem 6rem;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.wishlist-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sarika-champagne), transparent);
+  opacity: 0.6;
+}
+
+.wishlist-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   EDITORIAL HEADING & VAULT COUNTER
+   ========================================================================== */
+.wishlist-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 2.25rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--sarika-gold-border);
+  position: relative;
+}
+
+.wishlist-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sarika-champagne), transparent);
+}
+
+.wishlist-heading-content {
+  max-width: 760px;
+}
+
+.wishlist-eyebrow-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.wishlist-eyebrow-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--sarika-champagne);
+  opacity: 0.8;
+}
+
+.wishlist-eyebrow {
+  display: block;
+  font-family: var(--sarika-font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sarika-champagne);
+  font-weight: 600;
+}
+
+.wishlist-heading h1,
+.wishlist-title {
+  font-family: var(--sarika-font-serif);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--sarika-ivory);
+  margin: 0.35rem 0 0.85rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.wishlist-heading p,
+.wishlist-subtitle {
+  font-family: var(--sarika-font-serif);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--sarika-beige);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Counter Badge */
+.wishlist-count,
+.wishlist-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(85, 27, 43, 0.55), rgba(50, 16, 29, 0.75));
+  border: 1px solid var(--sarika-gold-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--sarika-champagne);
+  font-family: var(--sarika-font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(216, 183, 124, 0.2);
+  transition: all var(--sarika-transition-smooth);
+}
+
+.wishlist-count:hover,
+.wishlist-count-badge:hover {
+  border-color: var(--sarika-champagne);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4), 0 0 16px var(--sarika-gold-glow);
+  transform: translateY(-2px);
+}
+
+.wishlist-count svg,
+.wishlist-count-icon {
+  color: var(--sarika-champagne);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.wishlist-count-number {
+  font-weight: 700;
+  color: var(--sarika-ivory);
+}
+
+/* ==========================================================================
+   NOTIFICATIONS / TOAST ALERTS
+   ========================================================================== */
+.wishlist-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  animation: sarikaFadeDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.wishlist-notice.success {
+  background: linear-gradient(135deg, rgba(85, 27, 43, 0.95), rgba(50, 16, 29, 0.95));
+  border: 1px solid var(--sarika-gold-border-hover);
+  color: var(--sarika-ivory);
+}
+
+.wishlist-notice.error {
+  background: linear-gradient(135deg, rgba(161, 123, 120, 0.25), rgba(50, 16, 29, 0.95));
+  border: 1px solid var(--sarika-muted-rose);
+  color: #ffccd0;
+}
+
+.wishlist-notice-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.wishlist-notice-icon.success,
+.wishlist-notice svg {
+  color: var(--sarika-champagne);
+  flex-shrink: 0;
+}
+
+.wishlist-notice.error svg,
+.wishlist-notice-icon.error {
+  color: #ff8894;
+}
+
+.wishlist-notice button,
+.wishlist-notice-close {
+  background: transparent;
+  border: none;
+  color: var(--sarika-beige);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  opacity: 0.7;
+  transition: opacity var(--sarika-transition-fast), transform var(--sarika-transition-fast);
+}
+
+.wishlist-notice button:hover,
+.wishlist-notice-close:hover {
+  opacity: 1;
+  color: var(--sarika-champagne);
+  transform: scale(1.15);
+}
+
+/* ERROR STATE */
+.wishlist-error {
+  background: rgba(85, 27, 43, 0.4);
+  border: 1px solid var(--sarika-muted-rose);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  color: var(--sarika-ivory);
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wishlist-retry-btn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--sarika-champagne);
+  color: var(--sarika-champagne);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--sarika-font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--sarika-transition-fast);
+}
+
+.wishlist-retry-btn:hover {
+  background: var(--sarika-champagne);
+  color: var(--sarika-dark-wine);
+}
+
+/* ==========================================================================
+   EMPTY STATE (EDITORIAL SHOWCASE)
+   ========================================================================== */
+.wishlist-empty {
+  padding: 6rem 2rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 2rem auto;
+  background: linear-gradient(180deg, rgba(50, 16, 29, 0.5) 0%, rgba(31, 9, 18, 0.8) 100%);
+  border: 1px solid var(--sarika-gold-border);
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.wishlist-empty::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sarika-champagne), transparent);
+}
+
+.wishlist-empty-ornament,
+.wishlist-empty-icon {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(85, 27, 43, 0.8) 0%, rgba(31, 9, 18, 0.9) 100%);
+  border: 1px solid var(--sarika-gold-border-hover);
+  color: var(--sarika-champagne);
+  box-shadow: 0 0 30px var(--sarika-gold-glow);
+}
+
+.wishlist-empty-ring {
+  position: absolute;
+  inset: -6px;
+  border: 1px dashed rgba(216, 183, 124, 0.3);
+  border-radius: 50%;
+  animation: sarikaSpinSlow 24s linear infinite;
+}
+
+.wishlist-empty-eyebrow {
+  display: block;
+  font-family: var(--sarika-font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sarika-champagne);
+  margin-bottom: 0.65rem;
+  font-weight: 600;
+}
+
+.wishlist-empty h2,
+.wishlist-empty-title {
+  font-family: var(--sarika-font-serif);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 500;
+  color: var(--sarika-ivory);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.wishlist-empty p,
+.wishlist-empty-description {
+  font-family: var(--sarika-font-sans);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--sarika-beige);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.wishlist-shop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.05rem 2.5rem;
+  background: linear-gradient(135deg, var(--sarika-champagne) 0%, var(--sarika-soft-gold) 100%);
+  color: var(--sarika-dark-wine);
+  font-family: var(--sarika-font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--sarika-gold-glow);
+  transition: all var(--sarika-transition-smooth);
+}
+
+.wishlist-shop-btn:hover {
+  background: linear-gradient(135deg, #e4c790 0%, #caa468 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 30px rgba(216, 183, 124, 0.4);
+}
+
+.wishlist-btn-arrow {
+  transition: transform var(--sarika-transition-fast);
+}
+
+.wishlist-shop-btn:hover .wishlist-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   WISHLIST PRODUCT GRID
+   ========================================================================== */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 2.25rem 1.85rem;
+  position: relative;
+}
+
+@media (min-width: 1200px) {
+  .wishlist-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   WISHLIST PRODUCT CARD (3:4 PORTRAIT EDITORIAL)
+   ========================================================================== */
+.wishlist-card {
+  background: linear-gradient(180deg, rgba(50, 16, 29, 0.6) 0%, rgba(31, 9, 18, 0.85) 100%);
+  border: 1px solid var(--sarika-gold-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--sarika-transition-smooth), border-color var(--sarika-transition-smooth), box-shadow var(--sarika-transition-smooth);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.wishlist-card:hover {
+  border-color: var(--sarika-gold-border-hover);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 24px rgba(216, 183, 124, 0.16);
+  transform: translateY(-6px);
+}
+
+.wishlist-card.removing {
+  opacity: 0.35;
+  filter: grayscale(0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* IMAGE CONTAINER */
+.wishlist-image-container,
+.wishlist-image-link {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #14050b;
+  display: block;
+}
+
+.wishlist-product-img,
+.wishlist-image-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  display: block;
+}
+
+.wishlist-card:hover .wishlist-product-img,
+.wishlist-card:hover .wishlist-image-link img {
+  transform: scale(1.06);
+}
+
+.wishlist-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(31, 9, 18, 0.25) 0%, transparent 40%, rgba(31, 9, 18, 0.6) 100%);
+  pointer-events: none;
+  transition: opacity var(--sarika-transition-smooth);
+}
+
+.wishlist-no-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background: radial-gradient(circle, rgba(85, 27, 43, 0.4) 0%, rgba(20, 5, 11, 0.9) 100%);
+  color: var(--sarika-beige);
+  font-family: var(--sarika-font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.wishlist-no-image svg {
+  color: var(--sarika-champagne);
+  opacity: 0.7;
+}
+
+/* BADGES (SALE, LOW STOCK, OUT OF STOCK) */
+.wishlist-card-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 3;
+}
+
+.wishlist-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.badge-sale {
+  background: rgba(85, 27, 43, 0.9);
+  color: var(--sarika-ivory);
+  border: 1px solid var(--sarika-champagne);
+}
+
+.badge-low-stock {
+  background: rgba(216, 183, 124, 0.9);
+  color: var(--sarika-dark-wine);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.badge-out-stock {
+  background: rgba(31, 9, 18, 0.88);
+  color: var(--sarika-muted-rose);
+  border: 1px solid rgba(161, 123, 120, 0.5);
+}
+
+/* REMOVE BUTTON (FLOATING CIRCLE) */
+.wishlist-remove-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(31, 9, 18, 0.75);
+  border: 1px solid var(--sarika-gold-border);
+  color: var(--sarika-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--sarika-transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.wishlist-remove-btn:hover {
+  background: var(--sarika-burgundy);
+  border-color: #ff8894;
+  color: #ffccd0;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.wishlist-remove-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   PRODUCT CONTENT & INFORMATION
+   ========================================================================== */
+.wishlist-card-content {
+  padding: 1.35rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: linear-gradient(180deg, rgba(31, 9, 18, 0.4) 0%, rgba(50, 16, 29, 0.4) 100%);
+  border-top: 1px solid rgba(216, 183, 124, 0.1);
+}
+
+.wishlist-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+}
+
+.wishlist-artisan-tag {
+  font-family: var(--sarika-font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sarika-champagne);
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.wishlist-stock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.wishlist-stock-dot.in-stock {
+  background-color: var(--sarika-champagne);
+  box-shadow: 0 0 6px var(--sarika-champagne);
+}
+
+.wishlist-stock-dot.out-stock {
+  background-color: var(--sarika-muted-rose);
+}
+
+.wishlist-card-heading {
+  margin: 0 0 0.65rem;
+  line-height: 1.3;
+}
+
+.wishlist-product-name {
+  font-family: var(--sarika-font-serif);
+  font-size: 1.22rem;
+  font-weight: 500;
+  color: var(--sarika-ivory);
+  text-decoration: none;
+  letter-spacing: 0.015em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color var(--sarika-transition-fast);
+}
+
+.wishlist-product-name:hover {
+  color: var(--sarika-champagne);
+}
+
+/* PRICE BLOCK */
+.wishlist-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.wishlist-current-price,
+.wishlist-price > span:first-child {
+  font-family: var(--sarika-font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--sarika-champagne);
+}
+
+.wishlist-original-price,
+.wishlist-price del {
+  font-family: var(--sarika-font-sans);
+  font-size: 0.85rem;
+  color: var(--sarika-muted-rose);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* STOCK STATUS TEXT */
+.wishlist-in-stock {
+  font-family: var(--sarika-font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: #c5d9be;
+  margin: 0 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wishlist-in-stock::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: #a4caa0;
+  border-radius: 50%;
+}
+
+.wishlist-out-stock {
+  font-family: var(--sarika-font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--sarika-muted-rose);
+  margin: 0 0 1.25rem;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   BUTTONS & ACTIONS
+   ========================================================================== */
+.wishlist-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+/* ADD TO CART (PRIMARY LUXURY BUTTON) */
+.wishlist-add-cart-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--sarika-champagne) 0%, var(--sarika-soft-gold) 100%);
+  color: var(--sarika-dark-wine);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: var(--sarika-font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--sarika-transition-smooth);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.wishlist-add-cart-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e4c790 0%, #caa468 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 18px var(--sarika-gold-glow);
+}
+
+.wishlist-add-cart-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.wishlist-add-cart-btn:disabled {
+  background: rgba(50, 16, 29, 0.5);
+  border: 1px solid rgba(216, 183, 124, 0.15);
+  color: rgba(248, 243, 237, 0.35);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.wishlist-cart-icon {
+  transition: transform var(--sarika-transition-fast);
+}
+
+.wishlist-add-cart-btn:hover:not(:disabled) .wishlist-cart-icon {
+  transform: scale(1.12);
+}
+
+/* VIEW PRODUCT (SECONDARY EDITORIAL LINK) */
+.wishlist-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--sarika-beige);
+  border: 1px solid rgba(216, 183, 124, 0.22);
+  font-family: var(--sarika-font-sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--sarika-transition-fast);
+}
+
+.wishlist-view-btn:hover {
+  border-color: var(--sarika-champagne);
+  color: var(--sarika-ivory);
+  background: rgba(85, 27, 43, 0.3);
+}
+
+.wishlist-view-arrow {
+  transition: transform var(--sarika-transition-fast);
+}
+
+.wishlist-view-btn:hover .wishlist-view-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   LOADING SCREEN (HIGH-JEWELRY / EDITORIAL FEEL)
+   ========================================================================== */
+.wishlist-loading {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sarika-deep-bg);
+  padding: 2rem;
+}
+
+.wishlist-loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.wishlist-spinner {
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(216, 183, 124, 0.15);
+  border-top-color: var(--sarika-champagne);
+  border-right-color: var(--sarika-champagne);
+  border-radius: 50%;
+  animation: sarikaSpin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+  box-shadow: 0 0 20px var(--sarika-gold-glow);
+}
+
+.wishlist-loading-brand {
+  font-family: var(--sarika-font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.4em;
+  color: var(--sarika-champagne);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.wishlist-loading p {
+  font-family: var(--sarika-font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--sarika-beige);
+  margin: 0;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes sarikaSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sarikaSpinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sarikaFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN ADAPTATIONS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .wishlist-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .wishlist-count,
+  .wishlist-count-badge {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .wishlist-page {
+    padding: 2.5rem 1rem 4.5rem;
+  }
+
+  .wishlist-heading {
+    margin-bottom: 2rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .wishlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem 1.25rem;
+  }
+
+  .wishlist-card-content {
+    padding: 1.15rem 1rem 1.15rem;
+  }
+
+  .wishlist-product-name {
+    font-size: 1.1rem;
+  }
+
+  .wishlist-empty {
+    padding: 4rem 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* REDUCED MOTION PREFERENCES */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

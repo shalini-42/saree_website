@@ -1,0 +1,1438 @@
+
+/* ==========================================
+   SĀRIKA LUXURY SHOPPING BAG
+   Ivory | Burgundy | Champagne Gold
+========================================== */
+
+:root {
+  --sarika-wine: #681f36;
+  --sarika-wine-dark: #481326;
+  --sarika-gold: #b39461;
+  --sarika-gold-light: #e7d8ba;
+  --sarika-ivory: #faf8f4;
+  --sarika-cream: #f3efe8;
+  --sarika-white: #ffffff;
+  --sarika-text: #302b29;
+  --sarika-muted: #89817a;
+  --sarika-border: #eae4db;
+}
+
+/* ==========================================
+   MAIN PAGE
+========================================== */
+
+.sarika-cart-page {
+  min-height: 75vh;
+  padding: 65px 6%;
+  background: var(--sarika-ivory);
+  color: var(--sarika-text);
+}
+
+.sarika-cart-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   PAGE HEADING
+========================================== */
+
+.sarika-cart-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sarika-cart-heading > span {
+  display: block;
+  margin-bottom: 13px;
+  color: var(--sarika-gold);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.sarika-cart-heading h1 {
+  margin: 0;
+  color: var(--sarika-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.sarika-cart-heading p {
+  margin-top: 13px;
+  color: var(--sarika-muted);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Decorative Divider */
+
+.sarika-cart-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 32px auto 45px;
+  color: var(--sarika-gold);
+}
+
+.sarika-cart-divider::before,
+.sarika-cart-divider::after {
+  width: 85px;
+  height: 1px;
+  background: var(--sarika-gold-light);
+  content: "";
+}
+
+.sarika-cart-divider span {
+  font-size: 17px;
+}
+
+/* ==========================================
+   NOTIFICATION
+========================================== */
+
+.sarika-cart-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding: 15px 18px;
+  border: 1px solid var(--sarika-gold-light);
+  border-left: 3px solid var(--sarika-gold);
+  background: #fffdf9;
+  color: var(--sarika-wine);
+  font-size: 13px;
+  animation: sarikaNotice 0.3s ease;
+}
+
+.sarika-cart-notice > svg {
+  flex-shrink: 0;
+  color: var(--sarika-gold);
+}
+
+.sarika-cart-notice span {
+  flex: 1;
+}
+
+.sarika-cart-notice button {
+  border: none;
+  background: transparent;
+  color: var(--sarika-wine);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@keyframes sarikaNotice {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   CART TOP LINE
+========================================== */
+
+.sarika-cart-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.sarika-cart-topline > span {
+  color: var(--sarika-wine);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+}
+
+.sarika-cart-clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  color: #a36e6e;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.sarika-cart-clear:hover {
+  color: #a51e32;
+}
+
+.sarika-cart-clear:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   MAIN CART LAYOUT
+========================================== */
+
+.sarika-cart-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  align-items: start;
+  gap: 35px;
+}
+
+/* ==========================================
+   CART ITEMS SECTION
+========================================== */
+
+.sarika-cart-items {
+  padding: 10px 28px;
+  border: 1px solid var(--sarika-border);
+  background: var(--sarika-white);
+  box-shadow: 0 8px 35px rgba(49, 33, 27, 0.035);
+}
+
+/* Individual Product */
+
+.sarika-cart-item {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 25px;
+  padding: 27px 0;
+  border-bottom: 1px solid var(--sarika-border);
+}
+
+.sarika-cart-item:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================
+   PRODUCT IMAGE
+========================================== */
+
+.sarika-cart-image {
+  position: relative;
+  display: block;
+  width: 145px;
+  height: 180px;
+  overflow: hidden;
+  background: var(--sarika-cream);
+  text-decoration: none;
+}
+
+.sarika-cart-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.sarika-cart-image:hover img {
+  transform: scale(1.07);
+}
+
+.sarika-cart-no-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--sarika-gold);
+  background: var(--sarika-cream);
+}
+
+/* ==========================================
+   PRODUCT DETAILS
+========================================== */
+
+.sarika-cart-item-info {
+  min-width: 0;
+}
+
+.sarika-cart-item-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--sarika-gold);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.sarika-cart-item-name {
+  display: block;
+  color: var(--sarika-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.sarika-cart-item-name:hover {
+  color: var(--sarika-gold);
+}
+
+.sarika-cart-item-price {
+  margin: 10px 0 16px;
+  color: var(--sarika-text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ==========================================
+   QUANTITY CONTROLS
+========================================== */
+
+.sarika-cart-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.sarika-cart-quantity {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 37px;
+  border: 1px solid var(--sarika-border);
+  background: #fff;
+}
+
+.sarika-cart-quantity button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  color: var(--sarika-wine);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.sarika-cart-quantity button:hover:not(:disabled) {
+  background: var(--sarika-wine);
+  color: white;
+}
+
+.sarika-cart-quantity button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sarika-cart-quantity span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 32px;
+  color: var(--sarika-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Remove Button */
+
+.sarika-cart-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 0;
+  border: none;
+  background: transparent;
+  color: #a17a75;
+  font-size: 11px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.sarika-cart-remove:hover {
+  color: #a51e32;
+}
+
+.sarika-cart-remove:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   ITEM TOTAL
+========================================== */
+
+.sarika-cart-item-total {
+  align-self: start;
+  padding-top: 8px;
+  color: var(--sarika-wine);
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   ORDER SUMMARY
+========================================== */
+
+.sarika-cart-summary {
+  position: sticky;
+  top: 25px;
+  padding: 30px 27px;
+  border: 1px solid var(--sarika-border);
+  background: var(--sarika-white);
+  box-shadow: 0 12px 40px rgba(49, 33, 27, 0.055);
+}
+
+.sarika-cart-summary-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--sarika-gold);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+}
+
+.sarika-cart-summary h2 {
+  margin: 0 0 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--sarika-border);
+  color: var(--sarika-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+/* Summary Rows */
+
+.sarika-cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 19px;
+  color: var(--sarika-muted);
+  font-size: 12px;
+}
+
+.sarika-cart-summary-row strong {
+  color: var(--sarika-text);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.sarika-shipping-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sarika-shipping-label svg {
+  color: var(--sarika-gold);
+}
+
+/* ==========================================
+   FREE SHIPPING MESSAGE
+========================================== */
+
+.sarika-free-shipping-box {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid rgba(179, 148, 97, 0.35);
+  background: linear-gradient(
+    135deg,
+    #fbf8f0,
+    #fffdf9
+  );
+}
+
+.sarika-free-shipping-success,
+.sarika-free-shipping-progress {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--sarika-gold);
+}
+
+.sarika-free-shipping-success > svg,
+.sarika-free-shipping-progress > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sarika-free-shipping-success strong,
+.sarika-free-shipping-progress strong {
+  display: block;
+  color: var(--sarika-wine);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.sarika-free-shipping-success p,
+.sarika-free-shipping-progress p {
+  margin: 6px 0 0;
+  color: var(--sarika-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   DELIVERY ESTIMATE
+========================================== */
+
+.sarika-delivery-estimate {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 19px 0;
+  padding: 13px 0;
+  border-top: 1px solid var(--sarika-border);
+  border-bottom: 1px solid var(--sarika-border);
+  color: var(--sarika-muted);
+  font-size: 11px;
+}
+
+.sarika-delivery-estimate svg {
+  flex-shrink: 0;
+  color: var(--sarika-gold);
+}
+
+.sarika-delivery-estimate strong {
+  color: var(--sarika-wine);
+  font-weight: 600;
+}
+
+/* Shipping Error */
+
+.sarika-shipping-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 15px 0;
+  padding: 12px;
+  border: 1px solid #f0d9c1;
+  background: #fff8ef;
+  color: #925b31;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.sarika-shipping-error svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================
+   ESTIMATED TOTAL
+========================================== */
+
+.sarika-cart-summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--sarika-gold-light);
+}
+
+.sarika-cart-summary-total span {
+  color: var(--sarika-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+}
+
+.sarika-cart-summary-total strong {
+  color: var(--sarika-wine);
+  font-size: 21px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ==========================================
+   CHECKOUT BUTTON
+========================================== */
+
+.sarika-cart-checkout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 53px;
+  padding: 15px 20px;
+  overflow: hidden;
+  border: 1px solid var(--sarika-wine);
+  background: var(--sarika-wine);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.sarika-cart-checkout:hover {
+  border-color: var(--sarika-wine-dark);
+  background: var(--sarika-wine-dark);
+  box-shadow: 0 7px 20px rgba(104, 31, 54, 0.18);
+}
+
+.sarika-cart-checkout:active {
+  transform: scale(0.99);
+}
+
+/* ==========================================
+   SECURITY ASSURANCE
+========================================== */
+
+.sarika-cart-assurance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--sarika-muted);
+  font-size: 10px;
+}
+
+.sarika-cart-assurance svg {
+  color: var(--sarika-gold);
+}
+
+/* Continue Shopping */
+
+.sarika-cart-continue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--sarika-wine);
+  font-size: 11px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.sarika-cart-continue:hover {
+  color: var(--sarika-gold);
+}
+
+/* ==========================================
+   EMPTY CART
+========================================== */
+
+.sarika-cart-empty {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 75px 35px;
+  border: 1px solid var(--sarika-border);
+  background: var(--sarika-white);
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(49, 33, 27, 0.035);
+}
+
+.sarika-cart-empty-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95px;
+  height: 95px;
+  margin: 0 auto 27px;
+  border: 1px solid var(--sarika-gold-light);
+  border-radius: 50%;
+  background: #fcfaf5;
+  color: var(--sarika-gold);
+}
+
+.sarika-cart-empty h2 {
+  margin: 0 0 15px;
+  color: var(--sarika-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.sarika-cart-empty p {
+  max-width: 430px;
+  margin: 0 auto 27px;
+  color: var(--sarika-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* Primary Buttons */
+
+.sarika-cart-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 14px 28px;
+  border: 1px solid var(--sarika-wine);
+  background: var(--sarika-wine);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sarika-cart-primary:hover {
+  border-color: var(--sarika-wine-dark);
+  background: var(--sarika-wine-dark);
+  color: white;
+}
+
+/* ==========================================
+   LOGIN / ERROR MESSAGE
+========================================== */
+
+.sarika-cart-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 550px;
+  margin: 35px auto;
+  padding: 65px 35px;
+  border: 1px solid var(--sarika-border);
+  background: white;
+  text-align: center;
+}
+
+.sarika-cart-message > svg {
+  margin-bottom: 22px;
+  color: var(--sarika-gold);
+}
+
+.sarika-cart-message h2 {
+  margin: 0 0 12px;
+  color: var(--sarika-wine);
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.sarika-cart-message p {
+  margin: 0 0 25px;
+  color: var(--sarika-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.sarika-cart-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--sarika-wine);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.sarika-cart-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  min-height: 400px;
+  background: var(--sarika-ivory);
+  color: var(--sarika-wine);
+}
+
+.sarika-cart-loading p {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.sarika-cart-spinner {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--sarika-gold-light);
+  border-top-color: var(--sarika-wine);
+  border-radius: 50%;
+  animation: sarikaSpin 0.8s linear infinite;
+}
+
+@keyframes sarikaSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   FOOTER NOTE
+========================================== */
+
+.sarika-cart-footer-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin-top: 55px;
+  color: var(--sarika-muted);
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.sarika-cart-footer-note svg {
+  color: var(--sarika-gold);
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET
+========================================== */
+
+@media (max-width: 1050px) {
+  .sarika-cart-page {
+    padding: 50px 4%;
+  }
+
+  .sarika-cart-layout {
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 22px;
+  }
+
+  .sarika-cart-items {
+    padding: 8px 20px;
+  }
+
+  .sarika-cart-item {
+    grid-template-columns: 115px minmax(0, 1fr) auto;
+    gap: 17px;
+  }
+
+  .sarika-cart-image {
+    width: 115px;
+    height: 155px;
+  }
+
+  .sarika-cart-item-name {
+    font-size: 17px;
+  }
+
+  .sarika-cart-summary {
+    padding: 25px 21px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .sarika-cart-page {
+    padding: 40px 18px;
+  }
+
+  .sarika-cart-heading h1 {
+    font-size: 34px;
+  }
+
+  .sarika-cart-divider {
+    margin: 25px auto 32px;
+  }
+
+  .sarika-cart-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .sarika-cart-summary {
+    position: static;
+    width: 100%;
+  }
+
+  .sarika-cart-item {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 17px;
+    padding: 23px 0;
+  }
+
+  .sarika-cart-image {
+    grid-row: span 2;
+    width: 110px;
+    height: 145px;
+  }
+
+  .sarika-cart-item-info {
+    align-self: center;
+  }
+
+  .sarika-cart-item-name {
+    font-size: 17px;
+  }
+
+  .sarika-cart-item-total {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    padding-top: 0;
+  }
+
+  .sarika-cart-controls {
+    gap: 15px;
+  }
+
+  .sarika-cart-footer-note {
+    margin-top: 35px;
+    text-align: center;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .sarika-cart-page {
+    padding: 30px 12px;
+  }
+
+  .sarika-cart-heading > span {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+  }
+
+  .sarika-cart-heading h1 {
+    font-size: 29px;
+  }
+
+  .sarika-cart-heading p {
+    font-size: 13px;
+  }
+
+  .sarika-cart-topline > span {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .sarika-cart-items {
+    padding: 5px 13px;
+  }
+
+  .sarika-cart-item {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .sarika-cart-image {
+    width: 88px;
+    height: 120px;
+  }
+
+  .sarika-cart-item-label {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .sarika-cart-item-name {
+    font-size: 15px;
+  }
+
+  .sarika-cart-item-price {
+    margin: 7px 0 10px;
+    font-size: 12px;
+  }
+
+  .sarika-cart-controls {
+    gap: 10px;
+  }
+
+  .sarika-cart-quantity {
+    height: 32px;
+  }
+
+  .sarika-cart-quantity button {
+    width: 29px;
+    height: 30px;
+  }
+
+  .sarika-cart-quantity span {
+    min-width: 25px;
+    font-size: 11px;
+  }
+
+  .sarika-cart-remove {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .sarika-cart-item-total {
+    font-size: 13px;
+  }
+
+  .sarika-cart-summary {
+    padding: 23px 18px;
+  }
+
+  .sarika-cart-summary h2 {
+    font-size: 23px;
+  }
+
+  .sarika-cart-summary-total span {
+    font-size: 15px;
+  }
+
+  .sarika-cart-summary-total strong {
+    font-size: 18px;
+  }
+
+  .sarika-cart-empty {
+    padding: 55px 20px;
+  }
+
+  .sarika-cart-empty h2 {
+    font-size: 23px;
+  }
+
+  .sarika-cart-empty p {
+    font-size: 12px;
+  }
+
+  .sarika-cart-message {
+    padding: 50px 20px;
+  }
+
+  .sarika-cart-message h2 {
+    font-size: 23px;
+  }
+
+  .sarika-cart-footer-note {
+    font-size: 10px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.sarika-cart-page button:focus-visible,
+.sarika-cart-page a:focus-visible {
+  outline: 2px solid var(--sarika-gold);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sarika-cart-page *,
+  .sarika-cart-page *::before,
+  .sarika-cart-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   SĀRIKA LUXURY NOTIFICATION SYSTEM
+========================================== */
+
+.sarika-cart-notice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin: 0 0 25px;
+  padding: 19px 22px;
+  overflow: hidden;
+
+  border: 1px solid rgba(179, 148, 97, 0.35);
+  border-left: 4px solid var(--sarika-gold);
+
+  background: linear-gradient(
+    115deg,
+    #fffdf8,
+    #f8f3e9
+  );
+
+  color: var(--sarika-wine);
+  box-shadow: 0 8px 30px rgba(70, 35, 35, 0.07);
+
+  animation: sarikaNoticeEnter 0.4s ease both;
+}
+
+.sarika-cart-notice::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sarika-gold),
+    transparent
+  );
+  content: "";
+}
+
+.sarika-cart-notice > svg {
+  display: flex;
+  flex-shrink: 0;
+  width: 37px;
+  height: 37px;
+  padding: 9px;
+
+  border: 1px solid var(--sarika-gold-light);
+  border-radius: 50%;
+
+  background: white;
+  color: var(--sarika-gold);
+}
+
+.sarika-cart-notice span {
+  flex: 1;
+  color: var(--sarika-wine);
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.sarika-cart-notice button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid var(--sarika-border);
+  border-radius: 50%;
+
+  background: white;
+  color: var(--sarika-wine);
+
+  font-size: 19px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sarika-cart-notice button:hover {
+  border-color: var(--sarika-wine);
+  background: var(--sarika-wine);
+  color: white;
+}
+
+@keyframes sarikaNoticeEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   SUCCESS NOTIFICATION
+========================================== */
+
+.sarika-cart-notice.success {
+  border-left-color: #82936c;
+  background: linear-gradient(115deg, #fbfff8, #f2f7ed);
+}
+
+.sarika-cart-notice.success > svg {
+  border-color: #d6e3c8;
+  color: #718b58;
+}
+
+.sarika-cart-notice.success span {
+  color: #526b40;
+}
+
+/* ==========================================
+   ERROR NOTIFICATION
+========================================== */
+
+.sarika-cart-notice.error {
+  border-left-color: #ad5555;
+  background: linear-gradient(115deg, #fffafa, #fdf0ef);
+}
+
+.sarika-cart-notice.error > svg {
+  border-color: #efd2d0;
+  color: #ad5555;
+}
+
+.sarika-cart-notice.error span {
+  color: #914444;
+}
+
+/* ==========================================
+   LUXURY DIALOG OVERLAY
+   For a custom confirmation modal
+========================================== */
+
+.sarika-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  background: rgba(25, 15, 18, 0.65);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation: sarikaOverlayEnter 0.25s ease;
+}
+
+@keyframes sarikaOverlayEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Dialog Card */
+
+.sarika-dialog-box {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+
+  padding: 42px 35px 35px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--sarika-gold-light);
+  background: linear-gradient(
+    145deg,
+    #fffefa,
+    #f8f4ec
+  );
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.28),
+    0 0 0 5px rgba(179, 148, 97, 0.08);
+
+  text-align: center;
+
+  animation: sarikaDialogEnter 0.35s ease both;
+}
+
+.sarika-dialog-box::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--sarika-wine),
+    var(--sarika-gold),
+    var(--sarika-wine)
+  );
+
+  content: "";
+}
+
+@keyframes sarikaDialogEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dialog Decorative Symbol */
+
+.sarika-dialog-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 22px;
+
+  border: 1px solid var(--sarika-gold-light);
+  border-radius: 50%;
+
+  background: #fff;
+  color: var(--sarika-gold);
+
+  box-shadow: 0 5px 20px rgba(179, 148, 97, 0.12);
+}
+
+.sarika-dialog-icon.success {
+  border-color: #d6e3c8;
+  color: #718b58;
+}
+
+.sarika-dialog-icon.error {
+  border-color: #efd2d0;
+  color: #ad5555;
+}
+
+.sarika-dialog-icon.warning {
+  border-color: var(--sarika-gold-light);
+  color: var(--sarika-gold);
+}
+
+/* Dialog Text */
+
+.sarika-dialog-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+
+  color: var(--sarika-gold);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.sarika-dialog-box h2 {
+  margin: 0 0 13px;
+
+  color: var(--sarika-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.sarika-dialog-box p {
+  margin: 0 auto 28px;
+  max-width: 320px;
+
+  color: var(--sarika-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Dialog Divider */
+
+.sarika-dialog-divider {
+  width: 65px;
+  height: 1px;
+  margin: 0 auto 25px;
+
+  background: var(--sarika-gold-light);
+}
+
+/* Dialog Buttons */
+
+.sarika-dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.sarika-dialog-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 125px;
+  min-height: 45px;
+
+  padding: 12px 19px;
+
+  border: 1px solid var(--sarika-wine);
+  background: var(--sarika-wine);
+  color: white;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sarika-dialog-btn:hover {
+  border-color: var(--sarika-wine-dark);
+  background: var(--sarika-wine-dark);
+}
+
+.sarika-dialog-btn.secondary {
+  border-color: var(--sarika-border);
+  background: white;
+  color: var(--sarika-wine);
+}
+
+.sarika-dialog-btn.secondary:hover {
+  border-color: var(--sarika-gold);
+  background: #faf6ee;
+}
+
+.sarika-dialog-btn.danger {
+  border-color: #9c3945;
+  background: #9c3945;
+}
+
+.sarika-dialog-btn.danger:hover {
+  background: #782533;
+}
+
+/* Mobile Dialog */
+
+@media (max-width: 480px) {
+  .sarika-cart-notice {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .sarika-cart-notice span {
+    font-size: 12px;
+  }
+
+  .sarika-dialog-box {
+    max-width: 100%;
+    padding: 35px 22px 27px;
+  }
+
+  .sarika-dialog-box h2 {
+    font-size: 24px;
+  }
+
+  .sarika-dialog-box p {
+    font-size: 12px;
+  }
+
+  .sarika-dialog-actions {
+    flex-direction: column;
+  }
+
+  .sarika-dialog-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,679 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap");
+
+/* =========================================================
+   SĀRIKA · Add Product
+   Palette
+   --sk-garnet   deep wine, the brand colour
+   --sk-wine     lighter wine for hovers
+   --sk-brass    antique gold, used sparingly
+   --sk-silk     warm ivory page
+   --sk-ink      body text
+   ========================================================= */
+
+.sk-page {
+  --sk-garnet: #3a0f1d;
+  --sk-wine: #5a1a2e;
+  --sk-brass: #b8925a;
+  --sk-brass-soft: #d9c19a;
+  --sk-silk: #f7f2ea;
+  --sk-paper: #fffdf9;
+  --sk-ink: #2a1a1f;
+  --sk-mute: #8a7b78;
+  --sk-line: #e4d9c8;
+  --sk-danger: #9b1c31;
+
+  --sk-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sk-sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  min-height: 100vh;
+  background: var(--sk-silk);
+  color: var(--sk-ink);
+  font-family: var(--sk-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sk-page *,
+.sk-page *::before,
+.sk-page *::after {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   LEFT PANEL
+   --------------------------------------------------------- */
+.sk-aside {
+  position: relative;
+  background:
+    radial-gradient(120% 70% at 0% 0%, rgba(184, 146, 90, 0.18), transparent 60%),
+    linear-gradient(180deg, #3a0f1d 0%, #2b0a15 100%);
+  color: #f3e9db;
+}
+
+/* fine woven texture */
+.sk-aside::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px);
+  pointer-events: none;
+}
+
+.sk-aside-inner {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 40px 44px;
+  overflow-y: auto;
+}
+
+.sk-back {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--sk-brass-soft);
+  font: 400 0.85rem var(--sk-sans);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.sk-back:hover {
+  color: #fff;
+}
+
+.sk-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sk-brand-mark {
+  font-family: var(--sk-serif);
+  font-size: 2.1rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: #fff;
+}
+.sk-brand-sub {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--sk-brass-soft);
+}
+
+/* ----- preview card ----- */
+.sk-preview {
+  background: var(--sk-paper);
+  color: var(--sk-ink);
+  padding: 12px 12px 22px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(184, 146, 90, 0.5);
+}
+
+.sk-preview-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #efe5d6;
+  overflow: hidden;
+}
+.sk-preview-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sk-preview-empty {
+  position: absolute;
+  inset: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--sk-brass);
+  text-align: center;
+  color: var(--sk-mute);
+}
+.sk-preview-empty span {
+  font-family: var(--sk-serif);
+  font-size: 1.35rem;
+  color: var(--sk-wine);
+}
+.sk-preview-empty small {
+  font-size: 0.78rem;
+}
+
+.sk-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 10px;
+  background: var(--sk-garnet);
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+.sk-badge-feature {
+  left: auto;
+  right: 14px;
+  background: var(--sk-brass);
+  color: var(--sk-garnet);
+  font-weight: 500;
+}
+
+.sk-preview-body {
+  padding: 18px 8px 0;
+  text-align: center;
+}
+.sk-preview-meta {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  color: var(--sk-mute);
+  min-height: 1.2em;
+}
+.sk-preview-name {
+  margin: 0;
+  font-family: var(--sk-serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--sk-garnet);
+  overflow-wrap: anywhere;
+}
+.sk-preview-price {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+.sk-preview-price strong {
+  font-family: var(--sk-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--sk-wine);
+}
+.sk-preview-price s {
+  font-size: 0.9rem;
+  color: var(--sk-mute);
+}
+.sk-muted {
+  color: var(--sk-mute) !important;
+}
+
+.sk-aside-note {
+  margin: auto 0 0;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--sk-brass-soft);
+}
+
+/* ---------------------------------------------------------
+   RIGHT PANEL
+   --------------------------------------------------------- */
+.sk-main {
+  padding: 64px clamp(24px, 6vw, 96px) 80px;
+  max-width: 1000px;
+}
+
+.sk-head {
+  margin-bottom: 56px;
+}
+.sk-head h1 {
+  margin: 0;
+  font-family: var(--sk-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--sk-garnet);
+}
+.sk-head p {
+  max-width: 46ch;
+  margin: 14px 0 0;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--sk-mute);
+}
+
+/* ----- sections: description left, fields right ----- */
+.sk-section {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 44px 0;
+  border-top: 1px solid var(--sk-line);
+}
+.sk-section:first-of-type {
+  border-top: 1px solid var(--sk-brass);
+}
+
+.sk-section-intro h2 {
+  margin: 0 0 8px;
+  font-family: var(--sk-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--sk-wine);
+}
+.sk-section-intro p {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--sk-mute);
+}
+
+.sk-fields {
+  display: grid;
+  gap: 30px;
+  align-content: start;
+}
+.sk-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 32px;
+}
+.sk-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 28px;
+}
+.sk-span-2 {
+  grid-column: span 2;
+}
+
+/* ----- underlined floating-label fields ----- */
+.sk-field {
+  position: relative;
+  padding-top: 18px;
+}
+
+.sk-field input,
+.sk-field select,
+.sk-field textarea {
+  width: 100%;
+  padding: 8px 0 10px;
+  border: 0;
+  border-bottom: 1px solid #cdbfa9;
+  border-radius: 0;
+  background: transparent;
+  font: 400 1.05rem var(--sk-sans);
+  color: var(--sk-ink);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.sk-field textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+.sk-field input:focus,
+.sk-field select:focus,
+.sk-field textarea:focus {
+  border-bottom-color: var(--sk-wine);
+  box-shadow: 0 1px 0 0 var(--sk-wine);
+}
+
+.sk-field label {
+  position: absolute;
+  left: 0;
+  top: 27px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--sk-mute);
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* float the label when focused or filled */
+.sk-field input:focus + label,
+.sk-field input:not(:placeholder-shown) + label,
+.sk-field textarea:focus + label,
+.sk-field textarea:not(:placeholder-shown) + label,
+.sk-field select + label {
+  transform: translateY(-24px) scale(0.82);
+}
+.sk-field input:focus + label,
+.sk-field textarea:focus + label,
+.sk-field select:focus + label {
+  color: var(--sk-wine);
+}
+
+.sk-field small {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--sk-mute);
+}
+
+/* select arrow */
+.sk-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 28px;
+  cursor: pointer;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--sk-wine) 50%),
+    linear-gradient(135deg, var(--sk-wine) 50%, transparent 50%);
+  background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* money fields */
+.sk-money input {
+  padding-left: 22px;
+}
+.sk-money .sk-currency {
+  position: absolute;
+  left: 0;
+  top: 27px;
+  font-family: var(--sk-serif);
+  font-size: 1.2rem;
+  color: var(--sk-brass);
+}
+.sk-money label {
+  left: 0;
+}
+
+/* hide number spinners for a cleaner look */
+.sk-field input[type="number"]::-webkit-outer-spin-button,
+.sk-field input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.sk-field input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ----- image upload ----- */
+.sk-drop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 44px 24px;
+  border: 1px solid var(--sk-brass);
+  outline: 1px solid var(--sk-brass-soft);
+  outline-offset: -8px;
+  background: var(--sk-paper);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.sk-drop:hover,
+.sk-drop:focus-within {
+  background: #fbf3e6;
+}
+.sk-drop input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.sk-drop-title {
+  font-family: var(--sk-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--sk-garnet);
+}
+.sk-drop-sub {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--sk-mute);
+}
+
+.sk-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sk-thumb {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: #efe5d6;
+  box-shadow: 0 0 0 1px var(--sk-line);
+}
+.sk-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sk-thumb:first-child {
+  box-shadow: 0 0 0 2px var(--sk-brass);
+}
+.sk-cover-tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 4px 10px;
+  background: var(--sk-brass);
+  color: var(--sk-garnet);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+.sk-thumb button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(42, 10, 21, 0.85);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+.sk-thumb:hover button,
+.sk-thumb button:focus-visible {
+  opacity: 1;
+}
+.sk-thumb button:hover {
+  background: var(--sk-danger);
+}
+
+/* ----- switches ----- */
+.sk-switches {
+  gap: 24px;
+}
+.sk-switch {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 18px;
+  align-items: center;
+  cursor: pointer;
+}
+.sk-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.sk-track {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: 13px;
+  background: #d8ccb8;
+  transition: background 0.25s;
+}
+.sk-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s;
+}
+.sk-switch input:checked + .sk-track {
+  background: var(--sk-wine);
+}
+.sk-switch input:checked + .sk-track::after {
+  transform: translateX(20px);
+}
+.sk-switch input:focus-visible + .sk-track {
+  outline: 2px solid var(--sk-brass);
+  outline-offset: 3px;
+}
+.sk-switch-text strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.sk-switch-text small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--sk-mute);
+}
+
+/* ----- error ----- */
+.sk-error {
+  margin-top: 8px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--sk-danger);
+  background: #fbeceb;
+  color: var(--sk-danger);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* ----- actions ----- */
+.sk-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--sk-brass);
+}
+
+.sk-btn-primary,
+.sk-btn-ghost {
+  padding: 16px 40px;
+  font: 500 0.95rem var(--sk-sans);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.sk-btn-primary {
+  border: 1px solid var(--sk-garnet);
+  background: var(--sk-garnet);
+  color: #fff;
+}
+.sk-btn-primary:hover:not(:disabled) {
+  background: var(--sk-wine);
+  border-color: var(--sk-wine);
+}
+.sk-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.sk-btn-ghost {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--sk-wine);
+}
+.sk-btn-ghost:hover {
+  border-color: var(--sk-line);
+}
+
+.sk-btn-primary:focus-visible,
+.sk-btn-ghost:focus-visible,
+.sk-back:focus-visible {
+  outline: 2px solid var(--sk-brass);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .sk-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 860px) {
+  .sk-page {
+    grid-template-columns: 1fr;
+  }
+  .sk-aside-inner {
+    position: static;
+    min-height: 0;
+    max-height: none;
+    padding: 28px 24px;
+  }
+  /* compact horizontal preview on tablets/phones */
+  .sk-preview {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 10px;
+  }
+  .sk-preview-body {
+    padding: 0;
+    text-align: left;
+  }
+  .sk-preview-price {
+    justify-content: flex-start;
+  }
+  .sk-preview-name {
+    font-size: 1.25rem;
+  }
+  .sk-preview-empty span {
+    font-size: 0.85rem;
+  }
+  .sk-preview-empty small,
+  .sk-aside-note {
+    display: none;
+  }
+  .sk-main {
+    padding: 40px 20px 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sk-grid-2,
+  .sk-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .sk-span-2 {
+    grid-column: auto;
+  }
+  .sk-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-page * {
+    transition: none !important;
+  }
+}

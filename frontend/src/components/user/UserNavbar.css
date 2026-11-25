@@ -1,0 +1,554 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&display=swap");
+
+:root {
+  --sk-nav-h: 84px;
+}
+
+.sk-nav {
+  --crimson-950: #2c0710;
+  --crimson-900: #40101c;
+  --crimson-800: #5c1526;
+  --gold: #d9b57d;
+  --gold-deep: #b58a56;
+  --cream: #f6efe4;
+  --serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --sans: "Jost", "Segoe UI", system-ui, sans-serif;
+
+  /* colours that change between transparent and solid states */
+  --fg: #fbf1e2;
+  --fg-soft: rgba(251, 241, 226, 0.72);
+  --accent: var(--gold);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--sk-nav-h);
+  font-family: var(--sans);
+  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.sk-nav *,
+.sk-nav *::before,
+.sk-nav *::after {
+  box-sizing: border-box;
+}
+
+.sk-nav a {
+  text-decoration: none;
+}
+
+/* Transparent over the hero — the hero slides underneath */
+.sk-nav.is-overlay {
+  margin-bottom: calc(var(--sk-nav-h) * -1);
+  background: linear-gradient(to bottom, rgba(44, 7, 16, 0.55), transparent);
+  border-bottom: 1px solid rgba(217, 181, 125, 0.18);
+}
+
+/* Solid cream on every other page, and after scrolling */
+.sk-nav.is-solid {
+  --fg: #5c1526;
+  --fg-soft: #7b6a68;
+  --accent: #b58a56;
+
+  background: rgba(246, 239, 228, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e4d6c2;
+  box-shadow: 0 8px 30px rgba(60, 20, 30, 0.08);
+}
+
+/* Mobile menu open — header sits on the dark panel */
+.sk-nav.is-open {
+  --fg: #fbf1e2;
+  --fg-soft: rgba(251, 241, 226, 0.72);
+  --accent: var(--gold);
+
+  background: var(--crimson-950);
+  backdrop-filter: none;
+  border-bottom-color: rgba(217, 181, 125, 0.25);
+  box-shadow: none;
+}
+
+.sk-nav__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  max-width: 1500px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+
+/* ───────── Brand ───────── */
+.sk-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: start;
+  color: var(--fg);
+}
+
+.sk-nav__monogram,
+.sk-nav__logo {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.sk-nav__logo {
+  object-fit: cover;
+  border: 1px solid var(--accent);
+}
+
+.sk-nav__monogram {
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 0 4px transparent, inset 0 0 0 3px transparent;
+  outline: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 3px;
+}
+
+.sk-nav__name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2em;
+}
+
+.sk-nav__name small {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ───────── Links ───────── */
+.sk-nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 42px);
+}
+
+.sk-nav__links a {
+  position: relative;
+  padding: 8px 0;
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--fg-soft);
+  transition: color 0.3s ease;
+}
+
+.sk-nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.sk-nav__links a:hover,
+.sk-nav__links a.active {
+  color: var(--fg);
+}
+
+.sk-nav__links a:hover::after,
+.sk-nav__links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ───────── Actions ───────── */
+.sk-nav__actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 4px;
+}
+
+.sk-nav__icon,
+.sk-nav__user,
+.sk-nav__toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0;
+  color: var(--fg);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.sk-nav__icon {
+  width: 42px;
+  border-radius: 50%;
+}
+
+.sk-nav__icon:hover,
+.sk-nav__user:hover {
+  color: var(--accent);
+}
+
+.sk-nav__user {
+  gap: 8px;
+  padding: 0 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sk-nav__chev {
+  transition: transform 0.3s ease;
+}
+
+.sk-nav__chev.is-open {
+  transform: rotate(180deg);
+}
+
+.sk-nav__badge {
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--crimson-950);
+  background: linear-gradient(135deg, #ecd3a4, var(--gold-deep));
+  border-radius: 999px;
+}
+
+.sk-nav__toggle {
+  display: none;
+  width: 42px;
+}
+
+.sk-nav a:focus-visible,
+.sk-nav button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ───────── Account dropdown ───────── */
+.sk-nav__account {
+  position: relative;
+}
+
+.sk-nav__dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: 250px;
+  overflow: hidden;
+  background: #fffaf2;
+  border: 1px solid #e4d6c2;
+  border-top: 2px solid var(--gold-deep);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 26px 50px rgba(44, 7, 16, 0.25);
+  animation: sk-nav-drop 0.22s ease both;
+}
+
+.sk-nav__welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  background: #f6efe4;
+  border-bottom: 1px solid #eadfcd;
+}
+
+.sk-nav__welcome span {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.sk-nav__welcome strong {
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--crimson-800);
+}
+
+.sk-nav__dropdown a,
+.sk-nav__dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 20px;
+  font: 400 0.9rem var(--sans);
+  text-align: left;
+  color: #4a2a30;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, padding 0.2s ease;
+}
+
+.sk-nav__dropdown a svg,
+.sk-nav__dropdown button svg {
+  color: var(--gold-deep);
+}
+
+.sk-nav__dropdown a:hover,
+.sk-nav__dropdown button:hover {
+  padding-left: 26px;
+  color: var(--crimson-800);
+  background: #f6efe4;
+}
+
+.sk-nav__dropdown button {
+  color: #a3302a;
+  border-top: 1px solid #eadfcd;
+}
+
+.sk-nav__dropdown button svg {
+  color: #a3302a;
+}
+
+.sk-nav__dropdown button:hover {
+  color: #a3302a;
+  background: #fbefee;
+}
+
+.sk-nav__dropdown :focus-visible {
+  outline-offset: -3px;
+  outline-color: var(--crimson-800);
+}
+
+@keyframes sk-nav-drop {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ───────── Mobile full-screen panel ───────── */
+.sk-nav__panel {
+  position: fixed;
+  top: var(--sk-nav-h);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px clamp(24px, 8vw, 60px) 36px;
+  overflow-y: auto;
+  color: #fbf1e2;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 22px, rgba(217, 181, 125, 0.05) 22px 23px),
+    repeating-linear-gradient(-45deg, transparent 0 22px, rgba(217, 181, 125, 0.05) 22px 23px),
+    radial-gradient(500px 400px at 100% 100%, rgba(163, 34, 47, 0.45), transparent 70%),
+    linear-gradient(160deg, var(--crimson-950), var(--crimson-800));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.sk-nav__panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s;
+}
+
+.sk-nav__panel-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.sk-nav__panel-links a {
+  padding: 16px 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 9vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(251, 241, 226, 0.78);
+  border-bottom: 1px solid rgba(217, 181, 125, 0.18);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: color 0.25s ease, padding 0.25s ease;
+}
+
+.sk-nav__panel.is-open .sk-nav__panel-links a {
+  animation: sk-nav-rise 0.5s ease forwards;
+}
+
+.sk-nav__panel.is-open .sk-nav__panel-links a:nth-child(1) { animation-delay: 0.08s; }
+.sk-nav__panel.is-open .sk-nav__panel-links a:nth-child(2) { animation-delay: 0.14s; }
+.sk-nav__panel.is-open .sk-nav__panel-links a:nth-child(3) { animation-delay: 0.2s; }
+.sk-nav__panel.is-open .sk-nav__panel-links a:nth-child(4) { animation-delay: 0.26s; }
+.sk-nav__panel.is-open .sk-nav__panel-links a:nth-child(5) { animation-delay: 0.32s; }
+
+.sk-nav__panel-links a:hover,
+.sk-nav__panel-links a.active {
+  padding-left: 10px;
+  color: var(--gold);
+}
+
+@keyframes sk-nav-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sk-nav__panel-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.sk-nav__panel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  font: 500 0.78rem var(--sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: none;
+  border: 1px solid rgba(217, 181, 125, 0.5);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.sk-nav__panel-btn:hover {
+  background: rgba(217, 181, 125, 0.1);
+}
+
+.sk-nav__panel-btn--out {
+  color: #f1b3ae;
+  border-color: rgba(241, 179, 174, 0.4);
+}
+
+.sk-nav__panel-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(251, 241, 226, 0.7);
+}
+
+.sk-nav__panel-account {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+
+.sk-nav__panel-account a {
+  padding: 10px 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: rgba(251, 241, 226, 0.7);
+  transition: color 0.25s ease;
+}
+
+.sk-nav__panel-account a:hover {
+  color: var(--gold);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1100px) {
+  .sk-nav__user span,
+  .sk-nav__user .sk-nav__chev {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  :root {
+    --sk-nav-h: 70px;
+  }
+
+  .sk-nav__inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .sk-nav__links,
+  .sk-nav__user,
+  .sk-nav__account:has(.sk-nav__user) {
+    display: none;
+  }
+
+  .sk-nav__toggle {
+    display: inline-flex;
+  }
+
+  .sk-nav__monogram,
+  .sk-nav__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sk-nav__name {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .sk-nav__name small {
+    display: none;
+  }
+
+  .sk-nav__icon {
+    width: 38px;
+  }
+}
+
+@media (min-width: 961px) {
+  .sk-nav__panel {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-nav,
+  .sk-nav__panel,
+  .sk-nav__links a::after {
+    transition: none;
+  }
+
+  .sk-nav__dropdown,
+  .sk-nav__panel.is-open .sk-nav__panel-links a {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

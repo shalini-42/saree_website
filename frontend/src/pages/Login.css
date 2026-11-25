@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
+
+/* ============ TOKENS ============ */
+.sarika-login {
+  --ivory: #faf7f2;
+  --ink: #1b1114;
+  --wine: #4a0f1e;
+  --wine-deep: #2e0711;
+  --gold: #b8894a;
+  --gold-soft: #d9b87e;
+  --muted: #6f6165;
+  --line: rgba(27, 17, 20, 0.16);
+  --danger: #9b1c2e;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 6vw, 6rem);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sarika-login *,
+.sarika-login *::before,
+.sarika-login *::after {
+  box-sizing: border-box;
+}
+
+.sarika-login a {
+  text-decoration: none;
+}
+
+.sarika-login :focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ============ BACKGROUND ============ */
+.sarika-login-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("https://images.unsplash.com/photo-1604830476804-0eb3da86e8a6?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D");
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+
+  animation: sarika-login-zoom 24s ease-in-out infinite alternate;
+}
+
+.sarika-login-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(46, 7, 17, 0.94) 0%, rgba(46, 7, 17, 0.7) 50%, rgba(46, 7, 17, 0.45) 100%),
+    linear-gradient(0deg, rgba(27, 17, 20, 0.6), transparent 40%);
+}
+
+@keyframes sarika-login-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+/* ============ BRAND ============ */
+.sarika-login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sarika-login-logo {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  line-height: 1;
+  color: var(--gold-soft);
+}
+
+.sarika-login-tagline {
+  margin-top: 0.6rem;
+  font-size: 0.52rem;
+  letter-spacing: 0.5em;
+  color: rgba(250, 247, 242, 0.7);
+}
+
+/* ============ STAGE ============ */
+.sarika-login-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 27rem);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: center;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sarika-login-statement h2 {
+  margin: 0 0 1.6rem;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 7.5vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+}
+
+.sarika-login-statement em {
+  display: inline-block;
+  padding-left: 0.7em;
+  font-style: italic;
+  color: var(--gold-soft);
+}
+
+.sarika-login-statement p {
+  margin: 0;
+  max-width: 26rem;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.55;
+  color: rgba(250, 247, 242, 0.8);
+}
+
+/* ============ CARD ============ */
+.sarika-login-card {
+  position: relative;
+  padding: clamp(2rem, 4vw, 2.8rem);
+  background: var(--ivory);
+  color: var(--ink);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+  animation: sarika-login-rise 0.9s var(--ease) both;
+}
+
+.sarika-login-card::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(184, 137, 74, 0.45);
+  pointer-events: none;
+}
+
+.sarika-login-card-head {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sarika-login-seal {
+  flex: none;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  background: var(--wine);
+  color: var(--gold-soft);
+  border-radius: 50%;
+}
+
+.sarika-login-card h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--wine);
+}
+
+.sarika-login-card-head p {
+  margin: 0.35rem 0 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+@keyframes sarika-login-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ ERROR ============ */
+.sarika-login-error {
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--danger);
+  background: rgba(155, 28, 46, 0.07);
+  color: var(--danger);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.5;
+  animation: sarika-login-shake 0.4s var(--ease);
+}
+
+@keyframes sarika-login-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ============ FORM ============ */
+.sarika-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.sarika-login-field label {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.sarika-login-input {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0 1rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+.sarika-login-input:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 137, 74, 0.15);
+  color: var(--gold);
+}
+
+.sarika-login-input svg {
+  flex: none;
+}
+
+.sarika-login-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.95rem 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+.sarika-login-input input::placeholder {
+  color: rgba(111, 97, 101, 0.55);
+}
+
+.sarika-login-input input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #fff inset;
+  -webkit-text-fill-color: var(--ink);
+}
+
+.sarika-login-toggle {
+  display: grid;
+  place-items: center;
+  padding: 0.3rem;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sarika-login-toggle:hover {
+  color: var(--wine);
+}
+
+/* ============ SUBMIT ============ */
+.sarika-login-submit {
+  margin-top: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1.15rem 2rem;
+  background: var(--gold);
+  color: var(--wine-deep);
+  border: 1px solid var(--gold);
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+
+.sarika-login-submit svg {
+  transition: transform 0.4s var(--ease);
+}
+
+.sarika-login-submit:hover:not(:disabled) {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: var(--gold-soft);
+}
+
+.sarika-login-submit:hover:not(:disabled) svg {
+  transform: translate(3px, -3px);
+}
+
+.sarika-login-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============ ALT LINK ============ */
+.sarika-login-alt {
+  margin: 1.8rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.sarika-login-alt a {
+  color: var(--wine);
+  font-weight: 400;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--gold);
+  transition: color 0.3s;
+}
+
+.sarika-login-alt a:hover {
+  color: var(--gold);
+}
+
+/* ============ FOOT ============ */
+.sarika-login-foot {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.55);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .sarika-login-stage {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .sarika-login-statement {
+    justify-self: start;
+  }
+
+  .sarika-login-statement h2 {
+    font-size: clamp(2.6rem, 11vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .sarika-login-statement p {
+    display: none;
+  }
+
+  .sarika-login-card {
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  .sarika-login-foot {
+    text-align: center;
+  }
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  .sarika-login *,
+  .sarika-login-bg {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

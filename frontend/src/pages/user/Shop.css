@@ -1,0 +1,1133 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   SĀRIKA LUXURY ATELIER SHOP STYLESHEET (Shop.css)
+   Couture Indian Silk & Luxury Saree Fashion House Aesthetics
+   Inspired by Sabyasachi, Dior Haute Couture, Raw Mango, and Chanel
+───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --sarika-burgundy: #551B2B;
+  --sarika-dark-wine: #32101D;
+  --sarika-deep-bg: #1F0912;
+  --sarika-champagne: #D8B77C;
+  --sarika-soft-gold: #B9955B;
+  --sarika-ivory: #FAF6F0;
+  --sarika-warm-cream: #F8F3ED;
+  --sarika-beige: #E8D9C9;
+  --sarika-muted-rose: #A17B78;
+  --sarika-charcoal: #2A2426;
+  --sarika-border-gold: rgba(216, 183, 124, 0.25);
+  --sarika-border-gold-strong: rgba(216, 183, 124, 0.5);
+
+  --font-serif-luxury: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans-luxury: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   1. GLOBAL PAGE CONTAINER & AMBIANCE
+───────────────────────────────────────────────────────────────────────── */
+.shop-page {
+  min-height: 100vh;
+  background-color: var(--sarika-warm-cream);
+  color: var(--sarika-dark-wine);
+  font-family: var(--font-sans-luxury);
+  overflow-x: hidden;
+  padding-bottom: 5rem;
+  letter-spacing: 0.02em;
+}
+
+/* Selection */
+.shop-page ::selection {
+  background-color: var(--sarika-champagne);
+  color: var(--sarika-dark-wine);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   2. CINEMATIC ATELIER HERO BANNER
+───────────────────────────────────────────────────────────────────────── */
+.shop-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, #1f0912 0%, #32101d 50%, #551b2b 100%);
+  color: var(--sarika-ivory);
+  overflow: hidden;
+  border-bottom: 1px solid var(--sarika-border-gold-strong);
+}
+
+.shop-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(216, 183, 124, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.shop-hero-gold-glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(216, 183, 124, 0.15), transparent 60%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.shop-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shop-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--sarika-champagne);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.shop-eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sarika-champagne));
+}
+
+.shop-eyebrow-line:last-child {
+  background: linear-gradient(90deg, var(--sarika-champagne), transparent);
+}
+
+.shop-eyebrow-icon {
+  color: var(--sarika-champagne);
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.shop-hero-title {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sarika-ivory);
+  margin-bottom: 0.8rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.shop-hero-title-italic {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--sarika-beige);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 0.9em;
+}
+
+.shop-hero-motif {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.4rem;
+  width: 100%;
+  max-width: 220px;
+}
+
+.shop-motif-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sarika-champagne), transparent);
+}
+
+.shop-motif-diamond {
+  color: var(--sarika-champagne);
+  font-size: 0.8rem;
+}
+
+.shop-hero-sub {
+  font-size: clamp(0.85rem, 1.2vw, 0.98rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(232, 217, 201, 0.85);
+  max-width: 620px;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.04em;
+}
+
+.shop-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--sarika-champagne) 0%, #b89255 100%);
+  color: var(--sarika-dark-wine);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(216, 183, 124, 0.3);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shop-hero-link:hover {
+  transform: translateY(-2px);
+  background: #f1cf98;
+  box-shadow: 0 12px 32px rgba(216, 183, 124, 0.45);
+}
+
+.shop-hero-bottom {
+  position: absolute;
+  bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(216, 183, 124, 0.75);
+}
+
+.shop-hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.shop-hero-pill-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--sarika-champagne);
+}
+
+.shop-hero-sep {
+  font-size: 0.5rem;
+  color: rgba(216, 183, 124, 0.4);
+}
+
+@media (max-width: 768px) {
+  .shop-hero-bottom {
+    display: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   3. LUXURY COLLECTION / CATEGORY CAROUSEL RIBBON
+───────────────────────────────────────────────────────────────────────── */
+.shop-category-section {
+  padding: 3.5rem 1.5rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.shop-section-heading {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.shop-kicker {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sarika-muted-rose);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.shop-section-title {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  color: var(--sarika-burgundy);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.shop-section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--sarika-soft-gold);
+}
+
+.shop-title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+.shop-title-divider span {
+  width: 40px;
+  height: 1px;
+  background-color: rgba(216, 183, 124, 0.5);
+}
+
+.shop-title-divider p {
+  color: var(--sarika-champagne);
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+.shop-category-scroll-container {
+  overflow-x: auto;
+  padding: 1rem 0.5rem 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sarika-champagne) transparent;
+}
+
+.shop-category-scroll-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.shop-category-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--sarika-champagne);
+  border-radius: 4px;
+}
+
+.shop-category-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  min-width: max-content;
+}
+
+@media (max-width: 900px) {
+  .shop-category-list {
+    justify-content: flex-start;
+  }
+}
+
+.shop-category-item {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+}
+
+.shop-category-circle {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(216, 183, 124, 0.4), rgba(85, 27, 43, 0.3));
+  box-shadow: 0 4px 16px rgba(50, 16, 29, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shop-category-circle img,
+.shop-category-circle .shop-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shop-category-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--sarika-dark-wine), var(--sarika-burgundy));
+  border: 1px solid var(--sarika-champagne);
+}
+
+.shop-category-all-text {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  color: var(--sarika-champagne);
+  font-weight: 600;
+}
+
+.shop-category-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.shop-category-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--sarika-charcoal);
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.shop-category-count,
+.shop-category-pill {
+  font-size: 0.62rem;
+  color: var(--sarika-muted-rose);
+  letter-spacing: 0.05em;
+}
+
+/* Category Active State */
+.shop-category-item.active .shop-category-circle,
+.shop-category-item:hover .shop-category-circle {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(216, 183, 124, 0.35);
+  background: linear-gradient(135deg, var(--sarika-champagne), var(--sarika-soft-gold));
+}
+
+.shop-category-item.active .shop-category-circle img,
+.shop-category-item:hover .shop-category-circle img {
+  transform: scale(1.1);
+}
+
+.shop-category-item.active .shop-category-name {
+  color: var(--sarika-burgundy);
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   4. SHOWCASE SECTION & TOOLBAR
+───────────────────────────────────────────────────────────────────────── */
+.shop-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+}
+
+.shop-toolbar-wrapper {
+  background: #ffffff;
+  border: 1px solid var(--sarika-border-gold);
+  border-radius: 16px;
+  padding: 1.6rem 2rem;
+  box-shadow: 0 8px 30px rgba(50, 16, 29, 0.04);
+  margin-bottom: 2.8rem;
+}
+
+.shop-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.shop-results {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-results-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sarika-soft-gold);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.shop-results-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.85rem;
+  font-weight: 400;
+  color: var(--sarika-burgundy);
+  margin: 0 0 0.2rem;
+  letter-spacing: 0.04em;
+}
+
+.shop-results-count {
+  font-size: 0.78rem;
+  color: #725c58;
+  margin: 0;
+  font-weight: 300;
+}
+
+.shop-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Luxury Search Input */
+.shop-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--sarika-warm-cream);
+  border: 1px solid rgba(216, 183, 124, 0.4);
+  border-radius: 9999px;
+  padding: 0.6rem 1.1rem;
+  width: 280px;
+  transition: all 0.3s ease;
+}
+
+.shop-search-box:focus-within {
+  border-color: var(--sarika-champagne);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(216, 183, 124, 0.2);
+  width: 310px;
+}
+
+.shop-search-icon {
+  color: var(--sarika-soft-gold);
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+}
+
+.shop-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-sans-luxury);
+  font-size: 0.8rem;
+  color: var(--sarika-dark-wine);
+  width: 100%;
+}
+
+.shop-search-input::placeholder {
+  color: #a48c88;
+}
+
+.shop-search-clear {
+  background: transparent;
+  border: none;
+  color: #a48c88;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.shop-search-clear:hover {
+  color: var(--sarika-burgundy);
+}
+
+/* Luxury Sort Selector */
+.shop-sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--sarika-warm-cream);
+  border: 1px solid rgba(216, 183, 124, 0.4);
+  border-radius: 9999px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shop-sort-wrap:hover {
+  border-color: var(--sarika-champagne);
+  background: #ffffff;
+}
+
+.shop-sort-icon {
+  color: var(--sarika-soft-gold);
+  flex-shrink: 0;
+}
+
+.shop-sort {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-sans-luxury);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--sarika-dark-wine);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+}
+
+/* Active filter chips */
+.shop-active-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  padding-top: 1.2rem;
+  margin-top: 1.2rem;
+  border-top: 1px dashed rgba(216, 183, 124, 0.3);
+}
+
+.shop-active-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sarika-muted-rose);
+  font-weight: 600;
+}
+
+.shop-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(85, 27, 43, 0.06);
+  border: 1px solid rgba(216, 183, 124, 0.4);
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  color: var(--sarika-burgundy);
+  font-weight: 500;
+}
+
+.shop-filter-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: transparent;
+  border: none;
+  color: var(--sarika-burgundy);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  transition: opacity 0.2s ease;
+}
+
+.shop-filter-reset:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.shop-wishlist-error {
+  margin-top: 1rem;
+  padding: 0.75rem 1.2rem;
+  background: #fdf2f2;
+  border: 1px solid #f8b4b4;
+  color: #9b1c1c;
+  border-radius: 8px;
+  font-size: 0.78rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   5. EDITORIAL PRODUCT GRID & COUTURE CARDS
+───────────────────────────────────────────────────────────────────────── */
+.shop-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.2rem 1.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 1200px) {
+  .shop-product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.shop-product-item {
+  display: flex;
+}
+
+.shop-product-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(216, 183, 124, 0.22);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(50, 16, 29, 0.04);
+}
+
+.shop-product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(216, 183, 124, 0.55);
+  box-shadow: 0 16px 40px rgba(50, 16, 29, 0.12);
+}
+
+.shop-product-card.is-sold-out {
+  opacity: 0.82;
+}
+
+/* Saree Aspect Ratio: 3:4 Vertical Portrait */
+.shop-product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #2b111a;
+}
+
+.shop-product-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shop-img-main,
+.shop-img-alt {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s ease;
+}
+
+.shop-img-alt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Image Crossfade & Ken-Burns on hover */
+.shop-product-card:hover .shop-img-main {
+  transform: scale(1.05);
+}
+
+.shop-product-card:hover .shop-img-alt {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Fallback for missing image */
+.shop-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #32101d, #551b2b);
+  color: var(--sarika-champagne);
+}
+
+.shop-fallback-monogram {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.8rem;
+  letter-spacing: 0.25em;
+  font-weight: 500;
+}
+
+.shop-fallback-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(216, 183, 124, 0.7);
+  margin-top: 0.4rem;
+}
+
+/* Floating Glassmorphism Wishlist Button */
+.shop-wishlist-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(216, 183, 124, 0.4);
+  color: var(--sarika-dark-wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.shop-wishlist-btn:hover {
+  transform: scale(1.12);
+  background: #ffffff;
+  color: #c92a2a;
+}
+
+.shop-wishlist-btn.saved {
+  background: var(--sarika-burgundy);
+  color: var(--sarika-champagne);
+  border-color: var(--sarika-champagne);
+}
+
+.shop-wishlist-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Badge Stack */
+.shop-badge-stack {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.shop-badge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+.shop-badge--discount {
+  background: linear-gradient(135deg, var(--sarika-champagne), #b89255);
+  color: var(--sarika-dark-wine);
+}
+
+.shop-badge--sold {
+  background: rgba(50, 16, 29, 0.85);
+  color: var(--sarika-beige);
+  border: 1px solid rgba(216, 183, 124, 0.3);
+}
+
+/* Quick View Slide Up */
+.shop-quick-view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.85rem;
+  background: linear-gradient(to top, rgba(31, 9, 18, 0.95), rgba(50, 16, 29, 0.8));
+  color: var(--sarika-champagne);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+  backdrop-filter: blur(4px);
+}
+
+.shop-product-card:hover .shop-quick-view {
+  transform: translateY(0);
+}
+
+/* Saree Info & Metadata */
+.shop-product-info {
+  padding: 1.25rem 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.shop-product-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.shop-product-category {
+  color: var(--sarika-soft-gold);
+  font-weight: 600;
+}
+
+.shop-product-occasion {
+  color: var(--sarika-muted-rose);
+  font-weight: 500;
+}
+
+.shop-product-title {
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 0.35rem;
+}
+
+.shop-product-title h3 {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.22rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--sarika-burgundy);
+  margin: 0;
+  transition: color 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.shop-product-title:hover h3 {
+  color: #7b2940;
+}
+
+.shop-product-description {
+  font-size: 0.75rem;
+  color: #725c58;
+  font-weight: 300;
+  margin: 0 0 0.9rem;
+  line-height: 1.4;
+}
+
+.shop-product-price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(216, 183, 124, 0.18);
+}
+
+.shop-product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.shop-price-current {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--sarika-dark-wine);
+}
+
+.shop-price-old {
+  font-size: 0.82rem;
+  color: #9d8783;
+  text-decoration: line-through;
+}
+
+.shop-price-saved {
+  font-size: 0.62rem;
+  color: #15803d;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #f0fdf4;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   6. LOADING SKELETONS & EMPTY STATES
+───────────────────────────────────────────────────────────────────────── */
+.shop-skeleton-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(216, 183, 124, 0.2);
+}
+
+.shop-skeleton-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(90deg, #f0eae1 25%, #fbf8f5 50%, #f0eae1 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s infinite;
+}
+
+.shop-skeleton-meta {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.shop-skeleton-line {
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #f0eae1 25%, #fbf8f5 50%, #f0eae1 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s infinite;
+}
+
+.shop-skeleton-line.short {
+  width: 40%;
+}
+
+.shop-skeleton-line.title {
+  width: 80%;
+  height: 18px;
+}
+
+.shop-skeleton-line.price {
+  width: 50%;
+  margin-top: 0.4rem;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Empty & Error Cards */
+.shop-message {
+  text-align: center;
+  max-width: 540px;
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--sarika-border-gold);
+  box-shadow: 0 10px 30px rgba(50, 16, 29, 0.05);
+}
+
+.shop-message-eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sarika-soft-gold);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.shop-message-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.85rem;
+  color: var(--sarika-burgundy);
+  margin: 0 0 0.8rem;
+  font-weight: 400;
+}
+
+.shop-message-text {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #725c58;
+  margin-bottom: 1.8rem;
+}
+
+.shop-luxury-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background: var(--sarika-burgundy);
+  color: var(--sarika-ivory);
+  border: 1px solid var(--sarika-champagne);
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shop-luxury-btn:hover {
+  background: #6e2439;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(85, 27, 43, 0.25);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   7. ATELIER BOTTOM EMBELLISHMENT
+───────────────────────────────────────────────────────────────────────── */
+.shop-bottom-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  padding: 1rem 0;
+}
+
+.shop-bottom-rule {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 183, 124, 0.4), transparent);
+}
+
+.shop-bottom-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shop-bottom-diamond {
+  color: var(--sarika-champagne);
+  font-size: 0.75rem;
+}
+
+.shop-bottom-text {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sarika-soft-gold);
+  font-weight: 500;
+  margin: 0;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   8. RESPONSIVE OPTIMIZATIONS
+───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .shop-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .shop-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .shop-search-box {
+    width: 100% !important;
+  }
+
+  .shop-sort-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .shop-product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem 1rem;
+  }
+}
