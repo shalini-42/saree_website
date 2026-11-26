@@ -26,9 +26,13 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = 'django-insecure-9nj8r4e!unf2tt1uqe)q=!an@k+bko%o1#zm5!7*0qre7$e8tx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "saree-website-2frh.vercel.app",
+]
 
 
 # Application definition
