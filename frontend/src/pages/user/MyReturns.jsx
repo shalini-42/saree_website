@@ -25,7 +25,7 @@ import customerApi from "../../services/customerApi";
 import useStoreSettings from "../../hooks/useStoreSettings";
 import "./MyReturns.css";
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://saree-website-backend-seven.vercel.app";
 
 // ========================================
 // IMAGE URL HELPER

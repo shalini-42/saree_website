@@ -23,7 +23,7 @@ import customerApi from "../../services/customerApi";
 import useStoreSettings from "../../hooks/useStoreSettings";
 import "./OrderDetails.css";
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://saree-website-backend-seven.vercel.app";
 
 const RETURN_REASONS = [
   "Damaged Product",

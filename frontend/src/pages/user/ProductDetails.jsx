@@ -28,7 +28,7 @@ import customerApi from "../../services/customerApi";
 
 import "./ProductDetails.css";
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://saree-website-backend-seven.vercel.app";
 const MAX_REVIEW_IMAGES = 5;
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
 

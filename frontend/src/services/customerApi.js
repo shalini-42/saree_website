@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const customerApi = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/",
+  baseURL: "https://saree-website-backend-seven.vercel.app/api/",
   headers: {
     "Content-Type": "application/json",
   },

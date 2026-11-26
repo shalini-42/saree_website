@@ -163,6 +163,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://saree-website-n6u813f88-shalini-ms-projects-d27ae2ac.vercel.app",
 ]
 
 # EMAIL CONFIGURATION

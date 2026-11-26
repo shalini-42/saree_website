@@ -23,7 +23,7 @@ import {
 import api from "../../services/api.js";
 import "./AdminReviews.css";
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://saree-website-backend-seven.vercel.app";
 
 export default function AdminReviews() {
   const [reviews, setReviews] = useState([]);

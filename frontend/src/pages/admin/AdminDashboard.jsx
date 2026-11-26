@@ -582,7 +582,7 @@ export default function AdminDashboard() {
                               src={
                                 product.image.startsWith("http")
                                   ? product.image
-                                  : `http://127.0.0.1:8000${product.image}`
+                                  : `https://saree-website-backend-seven.vercel.app${product.image}`
                               }
                               alt={product.name}
                             />
