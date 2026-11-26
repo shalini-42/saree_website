@@ -22,19 +22,20 @@ load_dotenv(BASE_DIR / ".env")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9nj8r4e!unf2tt1uqe)q=!an@k+bko%o1#zm5!7*0qre7$e8tx'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = os.getenv(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-local-development-only-key"
+)
+
 DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
 
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "saree-website-backend-seven.vercel.app",
-    "saree-website-backend-h42gxfypo-shalini-ms-projects-d27ae2ac.vercel.app",
+    "saree-website-backend-tbqxw95rv-shalini-ms-projects-d27ae2ac.vercel.app",
 ]
-
 
 # Application definition
 
@@ -161,9 +162,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://saree-website-n6u813f88-shalini-ms-projects-d27ae2ac.vercel.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
     "https://saree-website-n6u813f88-shalini-ms-projects-d27ae2ac.vercel.app",
 ]
 
