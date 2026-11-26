@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "saree-website-backend-seven.vercel.app",
+    "saree-website-backend-h42gxfypo-shalini-ms-projects-d27ae2ac.vercel.app",
 ]
 
 
