@@ -31,7 +31,7 @@ DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "saree-website-backend.vercel.app",
+    "saree-website-backend-seven.vercel.app",
 ]
 
 
